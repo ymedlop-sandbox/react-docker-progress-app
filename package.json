@@ -1,0 +1,19 @@
+{
+  "name": "react-docker-progress-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymedlop-sandbox/react-docker-progress-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymedlop-sandbox/react-docker-progress-app/issues"
+  },
+  "homepage": "https://github.com/ymedlop-sandbox/react-docker-progress-app#readme"
+}
