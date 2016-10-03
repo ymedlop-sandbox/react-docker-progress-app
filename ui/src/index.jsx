@@ -1,7 +1,10 @@
+import './manifest.json';
+
 // Import CSS File
 import './styles/index.scss';
 
 // Import third dependencies
+import Modernizr from 'modernizr';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider as I18nProvider} from 'react-intl-redux';
@@ -25,4 +28,11 @@ if (app) {
         </I18nProvider>,
         app
     );
+
+    if (Modernizr.serviceworker) {
+        const register = require('serviceworker!./service-worker.js');
+        register({ scope: '/' })
+            .then(() => console.log('It worked!'))
+            .catch(err => console.log('It didnt work!', err));
+    }
 }

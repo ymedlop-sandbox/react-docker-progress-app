@@ -17,6 +17,9 @@ const config = {
         loaders: loaders
     },
     resolve: {
+        alias: {
+            modernizr$: path.resolve(__dirname, "../.modernizrrc")
+        },
         extensions: ['', '.js', '.jsx', '.css']
     },
     output: {

@@ -1,0 +1,7 @@
+{
+  "name": "Docker UI",
+  "short_name": "DockerUI",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

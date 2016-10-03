@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ymedlop-sandbox/react-docker-progress-app#readme",
   "dependencies": {
+    "modernizr": "^3.3.1",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
     "react-dom": "^15.3.2",
@@ -46,10 +47,14 @@
     "jshint": "^2.9.3",
     "jshint-loader": "^0.8.3",
     "json-loader": "^0.5.4",
+    "modernizr": "^3.3.1",
+    "modernizr-loader": "0.0.5",
     "node-sass": "^3.10.1",
     "react-hot-loader": "^3.0.0-beta.5",
     "sass-loader": "^4.0.2",
+    "serviceworker-loader": "^0.1.0",
     "style-loader": "^0.13.1",
+    "web-app-manifest-loader": "^0.1.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1",
     "webpack-validator": "^2.2.8"

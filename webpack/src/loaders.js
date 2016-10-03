@@ -2,6 +2,10 @@ const path = require('path');
 
 module.exports = [
     {
+        test: /manifest.json$/,
+        loader: 'file-loader?name=manifest.json!web-app-manifest-loader'
+    },
+    {
         test: /\.css$/,
         loader: 'style!css'
     },
@@ -16,6 +20,7 @@ module.exports = [
     },
     {
         test: /\.json$/,
+        exclude: [/node_modules/, /manifest.json$/],
         loader: 'json-loader'
     },
     {
@@ -28,5 +33,9 @@ module.exports = [
             'file?hash=sha512&digest=hex&name=[hash].[ext]',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
+    },
+    {
+        test: /\.modernizrrc$/,
+        loader: "modernizr"
     }
 ];

@@ -1,0 +1,4 @@
+//GET actions
+export const BLOBS_SEARCH_REQ = 'BLOBS_SEARCH_REQ';
+export const BLOBS_SEARCH_RES = 'BLOBS_SEARCH_RES';
+export const BLOBS_SEARCH_ERR = 'BLOBS_SEARCH_ERR';
