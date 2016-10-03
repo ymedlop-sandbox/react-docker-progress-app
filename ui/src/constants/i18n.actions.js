@@ -1,0 +1,1 @@
+export const I18N_SET_STATE = 'I18N_SET_STATE';
