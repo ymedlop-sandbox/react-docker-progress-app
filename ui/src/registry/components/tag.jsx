@@ -43,7 +43,6 @@ export class Tag extends Component {
                         : <div></div>
                 }
             </li>
-            
         );
     }
 }

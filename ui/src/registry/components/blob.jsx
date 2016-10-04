@@ -22,13 +22,19 @@ export class Blob extends Component {
         
         const { tag, repository, repositories } = this.props;
         const blob = repositories[repository] ? repositories[repository][tag] : {};
-        
+
         return (
-            <div>
-                <pre>
-                    {JSON.stringify(blob, null, 2) }
-                </pre>
-            </div>
+            <ul>
+                {
+                    blob.labels && Object.keys(blob.labels).map((item, i)  => {
+                        return (
+                            <li key={i}>
+                                <b>{item}:</b> {blob.labels[item]}
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         );
     }
 }

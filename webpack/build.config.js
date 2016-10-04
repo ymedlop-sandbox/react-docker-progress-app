@@ -25,8 +25,8 @@ const config = {
     output: {
         path: path.resolve(__dirname, '../dist/app'),
         publicPath: '/',
-        filename: 'bundle.js',
-        chunkFilename: 'bundle.js'
+        filename: 'bundle.[hash].js',
+        chunkFilename: 'bundle.[hash].js'
     },
     plugins: [
 
