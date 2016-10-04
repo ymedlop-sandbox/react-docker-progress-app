@@ -26,6 +26,7 @@ self.addEventListener('install', event => {
                     .then(assets =>
                         cache.addAll([
                             '/',
+                            '/manifest.json',
                             assets.main.js
                         ])
                     )
