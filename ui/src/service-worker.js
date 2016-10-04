@@ -15,7 +15,9 @@
 var dataCacheName = 'dockerUI-v1';
 var cacheName = 'dockerUI';
 var filesToCache = [
-    '/'
+    '/',
+    '/index.html',
+    '/bundle.js'
 ];
 
 self.addEventListener('install', function(e) {

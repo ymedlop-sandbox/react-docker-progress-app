@@ -1,15 +1,15 @@
 const webpack = require('webpack');
 const validate = require('webpack-validator');
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const preLoaders = require('./src/pre.loaders');
 const loaders = require('./src/loaders');
+const env = process.env.NODE_ENV;
 
 const config = {
     entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
         './ui/src/index.jsx'
     ],
     module: {
@@ -23,24 +23,18 @@ const config = {
         extensions: ['', '.js', '.jsx', '.css']
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../dist/app'),
         publicPath: '/',
         filename: 'bundle.js',
         chunkFilename: 'bundle.js'
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, '../dist'),
-        hot: true,
-        inline: true,
-        proxy: {
-            '/v2/*': {
-                target: 'http://localhost:5000',
-                changeOrigin: true
-            }
-        }
-    },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify(env)
+            }
+        }),
 
         // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
         // Only emit files when there are no errors
@@ -58,5 +52,9 @@ const config = {
         })
     ]
 };
+
+if (env == 'production') {
+    config.plugins.push(new UglifyJsPlugin({ minimize: true }));
+}
 
 module.exports = validate(config);

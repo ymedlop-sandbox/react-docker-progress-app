@@ -9,10 +9,7 @@ export default function (state = initialState, action={}) {
     switch (action.type) {
 
         case constants.blobsActions.BLOBS_SEARCH_REQ:
-            return Map({
-                isFetching: true,
-                repositories: state.get('repositories')
-            });
+            return Map(Object.assign(state.toObject(), { isFetching: true }));
 
         case constants.blobsActions.BLOBS_SEARCH_RES:
 

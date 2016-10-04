@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --progress --config webpack/build.config.js",
     "start-local": "webpack-dev-server --progress  --config webpack/start.local.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,7 +48,6 @@
     "jshint": "^2.9.3",
     "jshint-loader": "^0.8.3",
     "json-loader": "^0.5.4",
-    "modernizr": "^3.3.1",
     "modernizr-loader": "0.0.5",
     "node-sass": "^3.10.1",
     "react-hot-loader": "^3.0.0-beta.5",
