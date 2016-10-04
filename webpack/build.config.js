@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const validate = require('webpack-validator');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin');
 const path = require('path');
 
 const preLoaders = require('./src/pre.loaders');
@@ -49,6 +50,11 @@ const config = {
         new HtmlWebpackPlugin({
             template: './ui/src/assets/templates/index.html',
             title: 'DockerUI'
+        }),
+        
+        new AssetsPlugin({
+            filename: 'assets.json',
+            path: path.join(__dirname, '../dist', 'app')
         })
     ]
 };

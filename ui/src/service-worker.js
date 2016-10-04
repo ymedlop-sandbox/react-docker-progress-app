@@ -12,19 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var dataCacheName = 'dockerUI-v1';
-var cacheName = 'dockerUI';
-var filesToCache = [
-    '/'
-];
+var dataCacheName = 'dockerUI-v1.01';
+var cacheName = 'dockerUI-v1.01';
 
-self.addEventListener('install', function(e) {
+self.addEventListener('install', event => {
     console.log('[ServiceWorker] Install');
-    e.waitUntil(
-        caches.open(cacheName).then(function(cache) {
-            console.log('[ServiceWorker] Caching app shell');
-            return cache.addAll(filesToCache);
-        })
+
+    event.waitUntil(
+        caches.open(cacheName)
+            .then(cache =>
+                fetch('assets.json')
+                    .then(response => response.json())
+                    .then(assets =>
+                        cache.addAll([
+                            '/',
+                            assets.main.js
+                        ])
+                    )
+            ).then(() => self.skipWaiting())
     );
 });
 

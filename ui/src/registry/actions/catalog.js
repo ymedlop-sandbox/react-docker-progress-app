@@ -12,9 +12,20 @@ export const responseGET = (response) => ({
 });
 
 export function list() {
+    const url = `${document.location.origin}/v2/_catalog`;
+
     return dispatch => {
         dispatch(requestGET());
-        return fetch(`${document.location.origin}/v2/_catalog`, provider.request.configuration)
+        
+        caches.match(url)
+            .then((response) => {
+                if (response) {
+                    const jsonPromise = response.json();
+                    jsonPromise.then(response => dispatch(responseGET(response)));
+                }
+            });
+        
+        return fetch(url, provider.request.configuration)
             .then(response => provider.response.prepare(response))
             .then(response => provider.response.execute(response, dispatch, 'GET', responseGET));
     };
